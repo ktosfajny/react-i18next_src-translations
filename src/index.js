@@ -1,17 +1,18 @@
-import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
 
-import './i18n';
+import "./i18n"; // import i18n to enable multitranslating
 
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-    <Suspense fallback={(<div>Loading</div>)}>
-        <App />
-    </Suspense>
-    , document.getElementById('root'));
+  <Suspense fallback={<div>Loading</div>}>
+    <App />
+  </Suspense>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

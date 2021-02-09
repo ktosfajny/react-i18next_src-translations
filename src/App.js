@@ -2,11 +2,12 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
+import i18next from "i18next"; // import to get method for changing language
 
 function App() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(); // import to get 't' function which allows to display text based on passed key
 
+  // function to change language
   function handleClick(lang) {
     i18next.changeLanguage(lang);
   }
@@ -23,6 +24,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <div>
+          {/* t("Thanks.1") or t("asd") will return correct text based on chosen language. Translations are in src/tranlations  */}
           <h3>{t("Thanks.1")}</h3> <h3>{t("Why.1")}</h3>
           <p>{t("asd")}</p>
         </div>
