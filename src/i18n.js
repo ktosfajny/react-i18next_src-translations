@@ -7,10 +7,8 @@ import translateEN from "./translations/en/translation.json";
 import translateCHI from "./translations/chi/translation.json";
 import translateKO from "./translations/ko/translation.json";
 
-const fallbackLng = ["en"];
-const availableLanguages = ["en", "ko", "chi"];
-
-const res = {
+// object with imported translations
+const resources = {
   en: {
     translation: translateEN,
   },
@@ -21,6 +19,9 @@ const res = {
     translation: translateKO,
   },
 };
+
+const fallbackLng = ["en"];
+const availableLanguages = ["en", "ko", "chi"];
 
 const options = {
   // order and from where user language should be detected
@@ -39,7 +40,7 @@ const options = {
 
   // optional expire and domain for set cookie
   cookieMinutes: 10,
-  cookieDomain: "myDomain",
+  cookieDomain: "myDomain", // domain
 
   // optional htmlTag with lang attribute, the default is:
   htmlTag: document.documentElement,
@@ -57,11 +58,11 @@ i18n
 
   .init({
     fallbackLng, // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
-    debug: true,
-    whitelist: availableLanguages,
+    whitelist: availableLanguages, // whitelist is a list of languages that i18n will check if user uses one of it
     detection: options,
-    resources: res,
-
+    resources, // object with imported files with translations
+    // saveMissing: true, // if set to true - will send not translated keys to endpoint, default is false
+    // debug: true, // if set to true it will console log all informations in console needed to debug, default is false
     interpolation: {
       escapeValue: false,
     },
